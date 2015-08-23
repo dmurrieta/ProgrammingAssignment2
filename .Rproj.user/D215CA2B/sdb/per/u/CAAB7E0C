@@ -1,0 +1,18 @@
+{
+    "contents" : "\n## Put comments here that give an overall description of what your\n## functions do\n\n## Write a short comment describing this function\n\nmakeCacheMatrix <- function(x = matrix()) {\n  y <- NULL  # sets a default if cacheSolve has not been used.\n  inv <- NULL \n  set <- function(y){\n    x <<- y\n    inv <<- NULL\n  }\n  get<- function() x\n  setinverse <- function(inverse) inv <<- inverse\n  getinverse <- function () inv\n  list(set = set, get = get, setinverse = setinverse, getinverse = getinverse)\n}\n\ncachesolve <- function(x, ...) {\n  inv <- x$getinverse()\n  if(!is.null(inv)) {\n    message(\"getting cached data\")\n    return(inv)\n  }\n  mtx <- x$get()\n  inv <- solve(mtx, ...)\n  x$setinverse(inv)\n  inv\n}\n## Write a short comment describing this function\n\ncacheSolve <- function(x, ...) {\n  ## Return a matrix that is the inverse of 'x'\n}\n\na <- makeCacheMatrix( matrix(c(1,2,3,4), nrow = 2, ncol = 2) )",
+    "created" : 1440356254006.000,
+    "dirty" : true,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "2749615106",
+    "id" : "CAAB7E0C",
+    "lastKnownWriteTime" : 7011605692497750387,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "type" : "r_source"
+}
